@@ -39,6 +39,7 @@ class CardSchema(ma.Schema):
 
     class Meta:
         fields = ( "id", "title", "description", "date", "status", "priority", "user", "comments")
+        ordered = True # orders the above fields corrently instead of random
 
 
 card_schema = CardSchema()
