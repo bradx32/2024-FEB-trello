@@ -27,15 +27,18 @@ class Card(db.Model):
     #       id: 1,
     #       name: "User 1",
     #       email: "user1@email.com",
-    #   }  
+    #   }
     # }
 
-    class CardSchema(ma.Schema):
 
-        user = fields.Nested('UserSchema', only=["id", "name", "email"])
+class CardSchema(ma.Schema):
 
-        class Meta:
-            fields = ("id", "title", "description", "date", "status", "priority", "user")
+    user = fields.Nested('UserSchema', only=["id", "name", "email"])
 
-    card_schema = CardSchema()
-    cards_schema = CardSchema(many=True)
+    class Meta:
+        fields = ( "id", "title", "description", "date", "status", "priority", "user" )
+
+
+card_schema = CardSchema()
+cards_schema = CardSchema(many=True)
+
