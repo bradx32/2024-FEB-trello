@@ -28,7 +28,13 @@ class Card(db.Model):
     #       id: 1,
     #       name: "User 1",
     #       email: "user1@email.com",
-    #   }
+    #   },
+    #    comments: [
+    #       {
+    #           id: 1,
+    #           message: "Comment 1",
+    #       }
+    #   ]
     # }
 
 
@@ -38,8 +44,8 @@ class CardSchema(ma.Schema):
     comments = fields.List(fields.Nested("CommentSchema", exclude=["card"]))
 
     class Meta:
-        fields = ( "id", "title", "description", "date", "status", "priority", "user", "comments")
-        ordered = True # orders the above fields corrently instead of random
+        fields = ( "id", "title", "description", "date", "status", "priority", "user", "comments" )
+        ordered = True
 
 
 card_schema = CardSchema()
